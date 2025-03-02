@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui version="4.0">
+	<!-- Main Window -->
+	<class>MainWindow</class>
+	<widget class="QMainWindow" name="MainWindow">
+		<property name="geometry">
+			<rect>
+				<x>0</x>
+				<y>0</y>
+				<width>800</width>
+				<height>600</height>
+			</rect>
+		</property>
+		<property name="windowTitle">
+			<string>Haushaltsbuch</string>
+		</property>
+		
+		<!-- Layout -->
+		<widget class="QWidget" name="centralwidget">
+			<layout class="QVBoxLayout" name="verticalLayout">
+				<!-- Tab Bar -->
+				<item>
+					<widget class="QTabWidget" name="tabWidget">
+						<property name="currentIndex">
+							<number>0</number>
+						</property>
+						<!-- Tab Item Transaktionen -->
+						<widget class="QWidget" name="transactionsTab">
+							<attribute name="title">
+								<string>Transaktionen</string>
+							</attribute>
+							<!-- Transaktionen Layout und Inhalt -->
+							<layout class="QVBoxLayout" name="verticalLayout_2">
+								<!-- Zeitraum -->
+								<item>
+									<widget class="QGroupBox" name="dateRangeGroup">
+										<property name="title">
+											<string>Zeitraum</string>
+										</property>
+										
+										<layout class="QHBoxLayout" name="horizontalLayout">
+											<!-- Label Von:  -->
+											<item>
+												<widget class="QLabel" name="startDateLabel">
+													<property name="text">
+														<string>Von:</string>
+													</property>
+												</widget>
+											</item>
+											<!-- Kalender Popup StartDatum -->
+											<item>
+												<widget class="QDateEdit" name="startDateEdit">
+													<property name="calenderPopup">
+														<bool>true</bool>
+													</property>
+												</widget>
+											</item>
+											<!-- EndDatum Label -->
+											<item>
+												<widget class="QLabel" name="endDateLabel">
+													<property name="text">
+														<string>Bis:</string>
+													</property>
+												</widget>
+											</item>
+											<!-- EndDatum Kalender Popup -->
+											<item>
+												<widget class="QDateEdit" name="endDateEdit">
+													<property name="calendarPopup">
+														<bool>true</bool>
+													</property>
+												</widget>
+											</item>
+											<!-- Filter Button -->
+											<item>
+												<widget class="QPushButton" name="filterButton">
+													<property name="text">
+														<string>Filtern</string>
+													</property>
+												</widget>
+											</item>
+											<!-- Spacer Item -->
+											<item>
+												<spacer name="horizontalSpacer">
+													<property name="orientation">
+														<enum>Qt::Horizontal</enum>
+													</property>
+													<property name="sizehint" stdset="0">
+														<size>
+															<width>40</width>
+															<height>20</height>
+														</size>
+													</property>
+												</spacer>
+											</item>
+										</layout>
+									</widget>
+								</item>
+								<!-- Tabelle zum Anzeigen der Transaktionen -->
+								<item>
+									<widget class="QTableView" name="transactionsTable">
+										<property name="editTriggers">
+											<set>QAbstractItemView::NoEditTriggers</set>
+										</property>
+										<property name="selectionBehavior">
+											<enum>QAbstractItemView::SelectRows</enum>
+										</property>
+										<property name="sortingEnabled">
+											<bool>true</bool>
+										</property>
+										<attribute name="verticalHeaderVisible">
+											<bool>false</bool>
+										</attribute>
+									</widget>
+								</item>
+								<!-- Layout für Buttons -->
+								<item>
+									<layout class="QHBoxLayout" name="horizontalLayout_2">
+										<!-- Transaktion hinzufügen Button -->
+										<item>
+											<widget class="QPushButton" name="addTransactionButton">
+												<property name="text">
+													<string>Hinzufügen</string>
+												</property>
+											</widget>
+										</item>
+										<!-- Transaktion bearbeiten Button -->
+										<item>
+											<widget class="QPushButton" name="editTransactionButton">
+												<property name="text">
+													<string>Bearbeiten</string>
+												</property>
+											</widget>
+										</item>
+										<!-- Transaktion löschen Button -->
+										<item>
+											<widget class="QPushButton" name="deleteTransactionButton">
+												<property name="text">
+													<string>Löschen</string>
+												</property>
+											</widget>
+										</item>
+										<!-- Spacer -->
+										<item>
+											<spacer name="horizontalSpacer_2">
+												<property name="orientation">
+													<enum>Qt::Horizontal</enum>
+												</property>
+												<property name="sizehint" stdset="0">
+													<size>
+														<width>40</width>
+														<height>20</height>
+													</size>
+												</property>
+											</spacer>
+										</item>
+									</layout>
+								</item>
+							</layout>	
+						</widget>
+						
+						<!-- Tab Item Budget -->
+						<widget class="QWidget" name="budgetTab">
+							<attribute name="title">
+								<string>Budget</string>
+							</attribute>
+							<!-- Budget Layout -->
+							<layout class="QVBoxLayout" name="verticalLayout_3">
+								<!-- Tabellen Item -->
+								<item>
+									<widget class="QTableView" name="budgetTable">
+										<property name="editTriggers">
+											<set>QAbstractItemView::NoEditTriggers</set>
+										</property>
+										<property name="selectionBehavior">
+											<enum>QAbstractItemView::SelectRows</enum>
+										</property>
+										<attribute name="verticalHeaderVisible">
+											<bool>false</bool>
+										</attribute>
+									</widget>
+								</item>
+								<!-- Layout für die Buttons für Budget Funktionen -->
+								<item>
+									<layout class="QHBoxLayout" name="horizontalLayout_3">
+										<!-- Budget hinzufügen Button -->
+										<item>
+											<widget class="QPushButton" name="addBudgetButton">
+												<property name="text">
+													<string>Hinzufügen</string>
+												</property>
+											</widget>
+										</item>
+										<!-- Budget bearbeiten Button -->
+										<item>
+											<widget class="QPushButton" name="editBudgetButton">
+												<property name="text">
+													<string>Bearbeiten</string>
+												</property>
+											</widget>
+										</item>
+										<!-- Spacer Item -->
+										<item>
+											<spacer name="horizontalSpacer_3">
+												<property name="orientation">
+													<enum>Qt::Horizontal</enum>
+												</property>
+												<property name="sizeHint" stdset="0">
+													<size>
+														<width>40</width>
+														<height>20</height>
+													</size>
+												</property>
+											</spacer>
+										</item>
+									</layout>
+								</item>
+							</layout>
+						</widget>
+						
+						<!-- TabItem Bericht -->
+						<widget class="QWidget" name="reportsTab">
+							<attribute name="title">
+								<string>Bericht erstellen</string>
+							</attribute>
+							<!-- Layout und Content für Report -->
+							<layout class="QVBoxLayout" name="verticalLayout_4">
+								<item>
+									<widget class="QGroupBox" name="reportConfigGroup">
+										<property name="title">
+											<string>Berichtseinstellungen</string>
+										</property>
+										<layout class="QHBoxLayout" name="horizontalLayout_4">
+											<!-- Label Item Bericht-->
+											<item>
+												<widget class="QLabel" name="reportTypeLabel">
+													<property name="text">
+														<string>Berichtstyp:</string>
+													</property>
+												</widget>
+											</item>
+											<!-- Combo Box Item Berichts typ -->
+											<item>
+												<widget class="QComboBox" name="reportTypeComboBox">
+													<item>
+														<property name="text">
+															<string>Einnahmen/Ausgaben</string>
+														</property>
+													</item>
+													<!-- Item Kategorie Ausgaben -->
+													<item>
+														<property name="text">
+															<string>Ausgaben nach Kategorie</string>
+														</property>
+													</item>
+													<!-- Item Budget Übersicht -->
+													<item>
+														<property name="text">
+															<string>Budget-Übersicht</string>
+														</property>
+													</item>	
+												</widget>
+											</item>
+											<!-- Item Label Bericht Startdatum -->
+											<item>
+												<widget class="QLabel" name="reportStartDateLabel">
+													<property name="text">
+														<string>Von:</string>
+													</property>
+												</widget>
+											</item>
+											<!-- Item Kalender PopUp Bericht Startdatum -->
+											<item>
+												<widget class="QDateEdit" name="reportStartDateEdit">
+													<property name="calendarPopup">
+														<bool>true</bool>
+													</property>
+												</widget>
+											</item>
+											<!-- Item Label Bericht End Datum -->
+											<item>
+												<widget class="QLabel" name="reportEndDateLabel">
+													<property name="text">
+														<string>Bis:</string>
+													</property>
+												</widget>
+											</item>
+											<!-- Item Calendar Popup EndDatum -->
+											<item>
+												<widget class="QDateEdit" name="reportEndDateEdit">
+													<property name="calendarPopup">
+														<bool>true</bool>
+													</property>
+												</widget>
+											</item>
+											<!-- Item Button Bericht erstellen -->
+											<item>
+												<widget class="QPushButton" name="generateReportButton">
+													<property name="text">
+														<string>Bericht erstellen</string>
+													</property>
+												</widget>
+											</item>
+											<!-- Item Spacer -->
+											<item>
+												<spacer name="horizontalSpacer_4">
+													<property name="orientation">
+														<enum>Qt::Horizontal</enum>
+													</property>
+													<property name="sizeHint" stdset="0">
+														<size>
+															<width>40</width>
+															<height>20</height>
+														</size>
+													</property>
+												</spacer>
+											</item>
+										</layout>
+									</widget>
+								</item>
+								<!-- Bericht Scroll Bereich -->
+								<item>
+									<widget class="QScrollArea" name="reportScrollArea">
+										<property name="widgetResizable">
+											<bool>true</bool>
+										</property>
+										<widget class="QWidget" name="reportContainer">
+											<property name="geometry">
+												<rect>
+													<x>0</x>
+													<y>0</y>
+													<width>744</width>
+													<height>371</height>
+												</rect>
+											</property>
+										</widget>
+									</widget>
+								</item>
+							</layout>
+						</widget>
+					</widget>
+				</item>
+			</layout>
+		</widget>
+		<widget class="QMenuBar" name="menubar">
+			<property name="geometry">
+				<rect>
+					<x>0</x>
+					<y>0</y>
+					<width>800</width>
+					<height>22</height>
+				</rect>
+			</property>
+			<widget class="QMenu" name="menuDatei">
+				<property name="title">
+					<string>Datei</string>
+				</property>
+				<addaction name="actionExportieren"/>
+				<addaction name="actionImportieren"/>
+				<addaction name="separator"/>
+				<addaction name="actionBeenden"/>
+			</widget>
+			<widget class="QMenu" name="menuBearbeiten">
+				<property name="title">
+					<string>Bearbeiten</string>
+				</property>
+				<addaction name="actionEinstellungen"/>
+			</widget>
+			<widget class="QMenu" name="menuHilfe">
+				<property name="title">
+					<string>Hilfe</string>
+				</property>
+				<addaction name="actionUeber"/>
+			</widget>
+			<addaction name="menuDatei"/>
+			<addaction name="menuBearbeiten"/>
+			<addaction name="menuHilfe"/>
+		</widget>
+		<widget class="QStatusBar" name="statusbar"/>
+		<action name="actionExportieren">
+			<property name="text">
+				<string>Exportieren...</string>
+			</property>
+		</action>
+		<action name="actionImportieren">
+			<property name="text">
+				<string>Importieren...</string>
+			</property>
+		</action>
+		<action name="actionBeenden">
+			<property name="text">
+				<string>Beenden</string>
+			</property>
+		</action>
+		<action name="actionEinstellungen">
+			<property name="text">
+				<string>Einstellungen...</string>
+			</property>
+		</action>
+		<action name="actionUeber">
+			<property name="text">
+				<string>Über...</string>
+			</property>
+		</action>
+	</widget>
+	<resources/>
+	<connections/>
+</ui>
