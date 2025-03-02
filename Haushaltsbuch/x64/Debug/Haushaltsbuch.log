@@ -1,4 +1,4 @@
 ﻿   Qt/MSBuild: 3.3.1.1
+  Reading Qt configuration (C:/Qt/6.8.2/msvc2022_64/bin/qmake)
    Qt: 6.8.2
-  qrc_Resource.cpp
-LINK : fatal error LNK1104: Datei "MSVCRTD.lib" kann nicht geöffnet werden.
+  Haushaltsbuch.vcxproj -> C:\Users\tobia\source\repos\Haushaltsbuch\x64\Debug\Haushaltsbuch.exe

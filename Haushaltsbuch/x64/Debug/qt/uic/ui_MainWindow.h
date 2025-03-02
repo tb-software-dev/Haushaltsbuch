@@ -122,7 +122,7 @@ public:
 
         startDateEdit = new QDateEdit(dateRangeGroup);
         startDateEdit->setObjectName("startDateEdit");
-        startDateEdit->setCalenderPopup(true);
+        startDateEdit->setCalendarPopup(true);
 
         horizontalLayout->addWidget(startDateEdit);
 
