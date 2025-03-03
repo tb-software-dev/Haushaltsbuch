@@ -92,7 +92,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <QtUic Include="budgetdialog.ui" />
     <QtUic Include="MainWindow.ui" />
+    <QtUic Include="transactiondialog.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="Resource.qrc" />
