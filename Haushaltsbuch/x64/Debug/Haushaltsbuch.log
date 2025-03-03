@@ -1,4 +1,22 @@
 ﻿   Qt/MSBuild: 3.3.1.1
   Reading Qt configuration (C:/Qt/6.8.2/msvc2022_64/bin/qmake)
    Qt: 6.8.2
+  budget.cpp
+  main.cpp
+  mainwindow.cpp
+  transactions.cpp
+C:\Users\tobia\source\repos\Haushaltsbuch\Haushaltsbuch\budget.h(1,1): warning C4828: Die Datei enthält ein Zeichen, das bei Offset 0x7a beginnt. Dieses Zeichen ist im aktuellen Quellzeichensatz (Codepage 65001) unzulässig.
+  (Quelldatei „budget.cpp“ wird kompiliert)
+  
+C:\Users\tobia\source\repos\Haushaltsbuch\Haushaltsbuch\transactions.h(1,1): warning C4828: Die Datei enthält ein Zeichen, das bei Offset 0x37d beginnt. Dieses Zeichen ist im aktuellen Quellzeichensatz (Codepage 65001) unzulässig.
+  (Quelldatei „transactions.cpp“ wird kompiliert)
+  
+C:\Users\tobia\source\repos\Haushaltsbuch\Haushaltsbuch\budget.h(1,1): warning C4828: Die Datei enthält ein Zeichen, das bei Offset 0x112 beginnt. Dieses Zeichen ist im aktuellen Quellzeichensatz (Codepage 65001) unzulässig.
+  (Quelldatei „budget.cpp“ wird kompiliert)
+  
+C:\Users\tobia\source\repos\Haushaltsbuch\Haushaltsbuch\budget.h(1,1): warning C4828: Die Datei enthält ein Zeichen, das bei Offset 0x118 beginnt. Dieses Zeichen ist im aktuellen Quellzeichensatz (Codepage 65001) unzulässig.
+  (Quelldatei „budget.cpp“ wird kompiliert)
+  
+  qrc_Resource.cpp
+  moc_mainwindow.cpp
   Haushaltsbuch.vcxproj -> C:\Users\tobia\source\repos\Haushaltsbuch\x64\Debug\Haushaltsbuch.exe

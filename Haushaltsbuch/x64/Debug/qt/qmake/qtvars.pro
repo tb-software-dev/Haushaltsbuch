@@ -30,3 +30,5 @@ CONFIG += no_fixpath
 QT = designer core5compat charts concurrent core datavisualization gui help multimedia multimediawidgets network qml sql svg svgwidgets uitools widgets xml webview
 CONFIG += no_fixpath
 QT = designer core5compat charts concurrent core datavisualization gui help multimedia multimediawidgets network qml sql svg svgwidgets uitools widgets xml webview
+CONFIG += no_fixpath
+QT = designer core5compat charts concurrent core datavisualization gui help multimedia multimediawidgets network qml sql svg svgwidgets uitools widgets xml webview
