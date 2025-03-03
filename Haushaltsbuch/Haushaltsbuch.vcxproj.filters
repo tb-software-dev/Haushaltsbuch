@@ -1,54 +1,53 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>qml;cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="models">
+      <UniqueIdentifier>{992c4c69-57a4-4402-ab78-9c12ee21c441}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    <Filter Include="views">
+      <UniqueIdentifier>{f46bc867-4bdc-4bf0-9998-fe51f7404dea}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files">
+    <Filter Include="controllers">
+      <UniqueIdentifier>{89c4f61c-d1e2-4fb5-8cc2-f1a048c1fe0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="res">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>qrc;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Form Files">
-      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
-      <Extensions>ui</Extensions>
-    </Filter>
-    <Filter Include="Translation Files">
-      <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
-      <Extensions>ts</Extensions>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="MainWindow.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
     <QtUic Include="transactiondialog.ui">
-      <Filter>Form Files</Filter>
+      <Filter>views</Filter>
+    </QtUic>
+    <QtUic Include="MainWindow.ui">
+      <Filter>views</Filter>
     </QtUic>
     <QtUic Include="budgetdialog.ui">
-      <Filter>Form Files</Filter>
+      <Filter>views</Filter>
     </QtUic>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="Resource.qrc">
-      <Filter>Resource Files</Filter>
+      <Filter>res</Filter>
     </QtRcc>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="mainwindow.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>models</Filter>
     </ClCompile>
+    <ClCompile Include="transactions.cpp">
+      <Filter>models</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="mainwindow.h">
-      <Filter>Header Files</Filter>
+      <Filter>models</Filter>
     </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="transactions.h">
+      <Filter>models</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

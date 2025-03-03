@@ -10,72 +10,98 @@
 #define UI_BUDGETDIALOG_H
 
 #include <QtCore/QVariant>
+#include <QtWidgets/QAbstractButton>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QDialog>
-#include <QtWidgets/QPushButton>
+#include <QtWidgets/QDialogButtonBox>
+#include <QtWidgets/QDoubleSpinBox>
+#include <QtWidgets/QFormLayout>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
-#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
-class Ui_Dialog
+class Ui_BudgetDialog
 {
 public:
-    QWidget *layoutWidget;
-    QVBoxLayout *vboxLayout;
-    QPushButton *okButton;
-    QPushButton *cancelButton;
-    QSpacerItem *spacerItem;
+    QVBoxLayout *verticalLayout;
+    QFormLayout *formLayout;
+    QLabel *categoryLabel;
+    QComboBox *categoryComboBox;
+    QLabel *amountLabel;
+    QDoubleSpinBox *amountSpinBox;
+    QSpacerItem *verticalSpacer;
+    QDialogButtonBox *buttonBox;
 
-    void setupUi(QDialog *Dialog)
+    void setupUi(QDialog *BudgetDialog)
     {
-        if (Dialog->objectName().isEmpty())
-            Dialog->setObjectName("Dialog");
-        Dialog->resize(400, 300);
-        layoutWidget = new QWidget(Dialog);
-        layoutWidget->setObjectName("layoutWidget");
-        layoutWidget->setGeometry(QRect(300, 20, 77, 106));
-        vboxLayout = new QVBoxLayout(layoutWidget);
-#ifndef Q_OS_MAC
-        vboxLayout->setSpacing(6);
-#endif
-        vboxLayout->setContentsMargins(0, 0, 0, 0);
-        vboxLayout->setObjectName("vboxLayout");
-        vboxLayout->setContentsMargins(0, 0, 0, 0);
-        okButton = new QPushButton(layoutWidget);
-        okButton->setObjectName("okButton");
+        if (BudgetDialog->objectName().isEmpty())
+            BudgetDialog->setObjectName("BudgetDialog");
+        BudgetDialog->resize(350, 150);
+        verticalLayout = new QVBoxLayout(BudgetDialog);
+        verticalLayout->setObjectName("verticalLayout");
+        formLayout = new QFormLayout();
+        formLayout->setObjectName("formLayout");
+        categoryLabel = new QLabel(BudgetDialog);
+        categoryLabel->setObjectName("categoryLabel");
 
-        vboxLayout->addWidget(okButton);
+        formLayout->setWidget(0, QFormLayout::LabelRole, categoryLabel);
 
-        cancelButton = new QPushButton(layoutWidget);
-        cancelButton->setObjectName("cancelButton");
+        categoryComboBox = new QComboBox(BudgetDialog);
+        categoryComboBox->setObjectName("categoryComboBox");
+        categoryComboBox->setEditable(true);
 
-        vboxLayout->addWidget(cancelButton);
+        formLayout->setWidget(0, QFormLayout::FieldRole, categoryComboBox);
 
-        spacerItem = new QSpacerItem(20, 40, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
+        amountLabel = new QLabel(BudgetDialog);
+        amountLabel->setObjectName("amountLabel");
 
-        vboxLayout->addItem(spacerItem);
+        formLayout->setWidget(1, QFormLayout::LabelRole, amountLabel);
+
+        amountSpinBox = new QDoubleSpinBox(BudgetDialog);
+        amountSpinBox->setObjectName("amountSpinBox");
+        amountSpinBox->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        amountSpinBox->setDecimals(2);
+        amountSpinBox->setMaximum(1000000.000000000000000);
+
+        formLayout->setWidget(1, QFormLayout::FieldRole, amountSpinBox);
 
 
-        retranslateUi(Dialog);
-        QObject::connect(okButton, &QPushButton::clicked, Dialog, qOverload<>(&QDialog::accept));
-        QObject::connect(cancelButton, &QPushButton::clicked, Dialog, qOverload<>(&QDialog::reject));
+        verticalLayout->addLayout(formLayout);
 
-        QMetaObject::connectSlotsByName(Dialog);
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
+
+        verticalLayout->addItem(verticalSpacer);
+
+        buttonBox = new QDialogButtonBox(BudgetDialog);
+        buttonBox->setObjectName("buttonBox");
+        buttonBox->setOrientation(Qt::Horizontal);
+        buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
+
+        verticalLayout->addWidget(buttonBox);
+
+
+        retranslateUi(BudgetDialog);
+        QObject::connect(buttonBox, &QDialogButtonBox::accepted, BudgetDialog, qOverload<>(&QDialog::accept));
+        QObject::connect(buttonBox, &QDialogButtonBox::rejected, BudgetDialog, qOverload<>(&QDialog::reject));
+
+        QMetaObject::connectSlotsByName(BudgetDialog);
     } // setupUi
 
-    void retranslateUi(QDialog *Dialog)
+    void retranslateUi(QDialog *BudgetDialog)
     {
-        Dialog->setWindowTitle(QCoreApplication::translate("Dialog", "Dialog", nullptr));
-        okButton->setText(QCoreApplication::translate("Dialog", "OK", nullptr));
-        cancelButton->setText(QCoreApplication::translate("Dialog", "Cancel", nullptr));
+        BudgetDialog->setWindowTitle(QCoreApplication::translate("BudgetDialog", "Budget bearbeiten", nullptr));
+        categoryLabel->setText(QCoreApplication::translate("BudgetDialog", "Kategorie:", nullptr));
+        amountLabel->setText(QCoreApplication::translate("BudgetDialog", "Budgetbetrag (\342\202\254):", nullptr));
+        amountSpinBox->setSuffix(QCoreApplication::translate("BudgetDialog", " \342\202\254", nullptr));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class Dialog: public Ui_Dialog {};
+    class BudgetDialog: public Ui_BudgetDialog {};
 } // namespace Ui
 
 QT_END_NAMESPACE
