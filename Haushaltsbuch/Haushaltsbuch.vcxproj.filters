@@ -42,6 +42,9 @@
     <ClCompile Include="budget.cpp">
       <Filter>models</Filter>
     </ClCompile>
+    <ClCompile Include="Account.cpp">
+      <Filter>models</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="mainwindow.h">
@@ -53,6 +56,9 @@
       <Filter>models</Filter>
     </ClInclude>
     <ClInclude Include="budget.h">
+      <Filter>models</Filter>
+    </ClInclude>
+    <ClInclude Include="Account.h">
       <Filter>models</Filter>
     </ClInclude>
   </ItemGroup>

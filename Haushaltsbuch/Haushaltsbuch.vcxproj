@@ -105,6 +105,7 @@
     <QtRcc Include="Resource.qrc" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Account.cpp" />
     <ClCompile Include="budget.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainwindow.cpp" />
@@ -114,6 +115,7 @@
     <QtMoc Include="mainwindow.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Account.h" />
     <ClInclude Include="budget.h" />
     <ClInclude Include="transactions.h" />
   </ItemGroup>
