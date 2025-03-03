@@ -16,7 +16,7 @@ class Transaction
 
 public:
 
-	enum class Type
+	enum Type
 	{
 		Income,
 		Expense
