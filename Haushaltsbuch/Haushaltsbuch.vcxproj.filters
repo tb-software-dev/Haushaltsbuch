@@ -45,6 +45,9 @@
     <ClCompile Include="Account.cpp">
       <Filter>models</Filter>
     </ClCompile>
+    <ClCompile Include="database.cpp">
+      <Filter>models</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="mainwindow.h">
@@ -59,6 +62,9 @@
       <Filter>models</Filter>
     </ClInclude>
     <ClInclude Include="Account.h">
+      <Filter>models</Filter>
+    </ClInclude>
+    <ClInclude Include="database.h">
       <Filter>models</Filter>
     </ClInclude>
   </ItemGroup>
