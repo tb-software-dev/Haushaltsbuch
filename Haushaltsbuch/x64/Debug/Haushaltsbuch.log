@@ -1,48 +1,53 @@
 ﻿   Qt/MSBuild: 3.3.1.1
    Qt: 6.8.2
-  Account.cpp
-  budget.cpp
-  database.cpp
+  moc mainwindow.h
   main.cpp
   mainwindow.cpp
-  transactions.cpp
-C:\Users\tobia\source\repos\Haushaltsbuch\Haushaltsbuch\database.cpp(1,1): warning C4828: Die Datei enthält ein Zeichen, das bei Offset 0x1df beginnt. Dieses Zeichen ist im aktuellen Quellzeichensatz (Codepage 65001) unzulässig.
 C:\Users\tobia\source\repos\Haushaltsbuch\Haushaltsbuch\budget.h(1,1): warning C4828: Die Datei enthält ein Zeichen, das bei Offset 0x7a beginnt. Dieses Zeichen ist im aktuellen Quellzeichensatz (Codepage 65001) unzulässig.
-  (Quelldatei „budget.cpp“ wird kompiliert)
-  
-C:\Users\tobia\source\repos\Haushaltsbuch\Haushaltsbuch\transactions.h(1,1): warning C4828: Die Datei enthält ein Zeichen, das bei Offset 0x37d beginnt. Dieses Zeichen ist im aktuellen Quellzeichensatz (Codepage 65001) unzulässig.
-  (Quelldatei „transactions.cpp“ wird kompiliert)
+  (Quelldatei „mainwindow.cpp“ wird kompiliert)
   
 C:\Users\tobia\source\repos\Haushaltsbuch\Haushaltsbuch\budget.h(1,1): warning C4828: Die Datei enthält ein Zeichen, das bei Offset 0x112 beginnt. Dieses Zeichen ist im aktuellen Quellzeichensatz (Codepage 65001) unzulässig.
-  (Quelldatei „budget.cpp“ wird kompiliert)
+  (Quelldatei „mainwindow.cpp“ wird kompiliert)
   
-C:\Users\tobia\source\repos\Haushaltsbuch\Haushaltsbuch\database.cpp(1,1): warning C4828: Die Datei enthält ein Zeichen, das bei Offset 0x2da beginnt. Dieses Zeichen ist im aktuellen Quellzeichensatz (Codepage 65001) unzulässig.
 C:\Users\tobia\source\repos\Haushaltsbuch\Haushaltsbuch\budget.h(1,1): warning C4828: Die Datei enthält ein Zeichen, das bei Offset 0x118 beginnt. Dieses Zeichen ist im aktuellen Quellzeichensatz (Codepage 65001) unzulässig.
-  (Quelldatei „budget.cpp“ wird kompiliert)
-  
-C:\Users\tobia\source\repos\Haushaltsbuch\Haushaltsbuch\database.cpp(1,1): warning C4828: Die Datei enthält ein Zeichen, das bei Offset 0x64a beginnt. Dieses Zeichen ist im aktuellen Quellzeichensatz (Codepage 65001) unzulässig.
-C:\Users\tobia\source\repos\Haushaltsbuch\Haushaltsbuch\database.cpp(1,1): warning C4828: Die Datei enthält ein Zeichen, das bei Offset 0x6bd beginnt. Dieses Zeichen ist im aktuellen Quellzeichensatz (Codepage 65001) unzulässig.
-C:\Users\tobia\source\repos\Haushaltsbuch\Haushaltsbuch\database.cpp(1,1): warning C4828: Die Datei enthält ein Zeichen, das bei Offset 0x7e3 beginnt. Dieses Zeichen ist im aktuellen Quellzeichensatz (Codepage 65001) unzulässig.
-C:\Users\tobia\source\repos\Haushaltsbuch\Haushaltsbuch\database.cpp(1,1): warning C4828: Die Datei enthält ein Zeichen, das bei Offset 0xa8d beginnt. Dieses Zeichen ist im aktuellen Quellzeichensatz (Codepage 65001) unzulässig.
-C:\Users\tobia\source\repos\Haushaltsbuch\Haushaltsbuch\database.cpp(1,1): warning C4828: Die Datei enthält ein Zeichen, das bei Offset 0xbcf beginnt. Dieses Zeichen ist im aktuellen Quellzeichensatz (Codepage 65001) unzulässig.
-C:\Users\tobia\source\repos\Haushaltsbuch\Haushaltsbuch\database.cpp(1,1): warning C4828: Die Datei enthält ein Zeichen, das bei Offset 0xfa7 beginnt. Dieses Zeichen ist im aktuellen Quellzeichensatz (Codepage 65001) unzulässig.
-C:\Users\tobia\source\repos\Haushaltsbuch\Haushaltsbuch\database.cpp(1,1): warning C4828: Die Datei enthält ein Zeichen, das bei Offset 0x10b4 beginnt. Dieses Zeichen ist im aktuellen Quellzeichensatz (Codepage 65001) unzulässig.
-C:\Users\tobia\source\repos\Haushaltsbuch\Haushaltsbuch\database.cpp(1,1): warning C4828: Die Datei enthält ein Zeichen, das bei Offset 0x113b beginnt. Dieses Zeichen ist im aktuellen Quellzeichensatz (Codepage 65001) unzulässig.
-C:\Users\tobia\source\repos\Haushaltsbuch\Haushaltsbuch\transactions.h(1,1): warning C4828: Die Datei enthält ein Zeichen, das bei Offset 0x37d beginnt. Dieses Zeichen ist im aktuellen Quellzeichensatz (Codepage 65001) unzulässig.
-  (Quelldatei „Account.cpp“ wird kompiliert)
+  (Quelldatei „mainwindow.cpp“ wird kompiliert)
   
 C:\Users\tobia\source\repos\Haushaltsbuch\Haushaltsbuch\transactions.h(1,1): warning C4828: Die Datei enthält ein Zeichen, das bei Offset 0x37d beginnt. Dieses Zeichen ist im aktuellen Quellzeichensatz (Codepage 65001) unzulässig.
-  (Quelldatei „database.cpp“ wird kompiliert)
+  (Quelldatei „mainwindow.cpp“ wird kompiliert)
   
 C:\Users\tobia\source\repos\Haushaltsbuch\Haushaltsbuch\budget.h(1,1): warning C4828: Die Datei enthält ein Zeichen, das bei Offset 0x7a beginnt. Dieses Zeichen ist im aktuellen Quellzeichensatz (Codepage 65001) unzulässig.
-  (Quelldatei „database.cpp“ wird kompiliert)
+  (Quelldatei „main.cpp“ wird kompiliert)
   
 C:\Users\tobia\source\repos\Haushaltsbuch\Haushaltsbuch\budget.h(1,1): warning C4828: Die Datei enthält ein Zeichen, das bei Offset 0x112 beginnt. Dieses Zeichen ist im aktuellen Quellzeichensatz (Codepage 65001) unzulässig.
-  (Quelldatei „database.cpp“ wird kompiliert)
+  (Quelldatei „main.cpp“ wird kompiliert)
   
 C:\Users\tobia\source\repos\Haushaltsbuch\Haushaltsbuch\budget.h(1,1): warning C4828: Die Datei enthält ein Zeichen, das bei Offset 0x118 beginnt. Dieses Zeichen ist im aktuellen Quellzeichensatz (Codepage 65001) unzulässig.
-  (Quelldatei „database.cpp“ wird kompiliert)
+  (Quelldatei „main.cpp“ wird kompiliert)
   
-  qrc_Resource.cpp
+C:\Users\tobia\source\repos\Haushaltsbuch\Haushaltsbuch\transactions.h(1,1): warning C4828: Die Datei enthält ein Zeichen, das bei Offset 0x37d beginnt. Dieses Zeichen ist im aktuellen Quellzeichensatz (Codepage 65001) unzulässig.
+  (Quelldatei „main.cpp“ wird kompiliert)
+  
   moc_mainwindow.cpp
-LINK : fatal error LNK1104: Datei "msvcprtd.lib" kann nicht geöffnet werden.
+C:\Users\tobia\source\repos\Haushaltsbuch\Haushaltsbuch\budget.h(1,1): warning C4828: Die Datei enthält ein Zeichen, das bei Offset 0x7a beginnt. Dieses Zeichen ist im aktuellen Quellzeichensatz (Codepage 65001) unzulässig.
+  (Quelldatei „x64/Debug/qt/moc/moc_mainwindow.cpp“ wird kompiliert)
+  
+C:\Users\tobia\source\repos\Haushaltsbuch\Haushaltsbuch\budget.h(1,1): warning C4828: Die Datei enthält ein Zeichen, das bei Offset 0x112 beginnt. Dieses Zeichen ist im aktuellen Quellzeichensatz (Codepage 65001) unzulässig.
+  (Quelldatei „x64/Debug/qt/moc/moc_mainwindow.cpp“ wird kompiliert)
+  
+C:\Users\tobia\source\repos\Haushaltsbuch\Haushaltsbuch\budget.h(1,1): warning C4828: Die Datei enthält ein Zeichen, das bei Offset 0x118 beginnt. Dieses Zeichen ist im aktuellen Quellzeichensatz (Codepage 65001) unzulässig.
+  (Quelldatei „x64/Debug/qt/moc/moc_mainwindow.cpp“ wird kompiliert)
+  
+C:\Users\tobia\source\repos\Haushaltsbuch\Haushaltsbuch\transactions.h(1,1): warning C4828: Die Datei enthält ein Zeichen, das bei Offset 0x37d beginnt. Dieses Zeichen ist im aktuellen Quellzeichensatz (Codepage 65001) unzulässig.
+  (Quelldatei „x64/Debug/qt/moc/moc_mainwindow.cpp“ wird kompiliert)
+  
+budgetcontroller.obj : error LNK2019: Verweis auf nicht aufgelöstes externes Symbol ""public: bool __cdecl Database::saveBudget(class Budget const &)" (?saveBudget@Database@@QEAA_NAEBVBudget@@@Z)" in Funktion ""public: bool __cdecl BudgetController::setBudget(class QString const &,double)" (?setBudget@BudgetController@@QEAA_NAEBVQString@@N@Z)".
+budgetcontroller.obj : error LNK2019: Verweis auf nicht aufgelöstes externes Symbol ""public: class Budget __cdecl Database::getBudget(void)" (?getBudget@Database@@QEAA?AVBudget@@XZ)" in Funktion ""public: __cdecl BudgetController::BudgetController(class Database *)" (??0BudgetController@@QEAA@PEAVDatabase@@@Z)".
+moc_mainwindow.obj : error LNK2019: Verweis auf nicht aufgelöstes externes Symbol ""private: void __cdecl MainWindow::onAddTransaction(void)" (?onAddTransaction@MainWindow@@AEAAXXZ)" in Funktion ""private: static void __cdecl MainWindow::qt_static_metacall(class QObject *,enum QMetaObject::Call,int,void * *)" (?qt_static_metacall@MainWindow@@CAXPEAVQObject@@W4Call@QMetaObject@@HPEAPEAX@Z)".
+moc_mainwindow.obj : error LNK2019: Verweis auf nicht aufgelöstes externes Symbol ""private: void __cdecl MainWindow::onEditTransaction(void)" (?onEditTransaction@MainWindow@@AEAAXXZ)" in Funktion ""private: static void __cdecl MainWindow::qt_static_metacall(class QObject *,enum QMetaObject::Call,int,void * *)" (?qt_static_metacall@MainWindow@@CAXPEAVQObject@@W4Call@QMetaObject@@HPEAPEAX@Z)".
+moc_mainwindow.obj : error LNK2019: Verweis auf nicht aufgelöstes externes Symbol ""private: void __cdecl MainWindow::onDeleteTransaction(void)" (?onDeleteTransaction@MainWindow@@AEAAXXZ)" in Funktion ""private: static void __cdecl MainWindow::qt_static_metacall(class QObject *,enum QMetaObject::Call,int,void * *)" (?qt_static_metacall@MainWindow@@CAXPEAVQObject@@W4Call@QMetaObject@@HPEAPEAX@Z)".
+moc_mainwindow.obj : error LNK2019: Verweis auf nicht aufgelöstes externes Symbol ""private: void __cdecl MainWindow::onFilterTransactions(void)" (?onFilterTransactions@MainWindow@@AEAAXXZ)" in Funktion ""private: static void __cdecl MainWindow::qt_static_metacall(class QObject *,enum QMetaObject::Call,int,void * *)" (?qt_static_metacall@MainWindow@@CAXPEAVQObject@@W4Call@QMetaObject@@HPEAPEAX@Z)".
+moc_mainwindow.obj : error LNK2019: Verweis auf nicht aufgelöstes externes Symbol ""private: void __cdecl MainWindow::onDateRangeTransactions(void)" (?onDateRangeTransactions@MainWindow@@AEAAXXZ)" in Funktion ""private: static void __cdecl MainWindow::qt_static_metacall(class QObject *,enum QMetaObject::Call,int,void * *)" (?qt_static_metacall@MainWindow@@CAXPEAVQObject@@W4Call@QMetaObject@@HPEAPEAX@Z)".
+moc_mainwindow.obj : error LNK2019: Verweis auf nicht aufgelöstes externes Symbol ""private: void __cdecl MainWindow::onAddBudget(void)" (?onAddBudget@MainWindow@@AEAAXXZ)" in Funktion ""private: static void __cdecl MainWindow::qt_static_metacall(class QObject *,enum QMetaObject::Call,int,void * *)" (?qt_static_metacall@MainWindow@@CAXPEAVQObject@@W4Call@QMetaObject@@HPEAPEAX@Z)".
+moc_mainwindow.obj : error LNK2019: Verweis auf nicht aufgelöstes externes Symbol ""private: void __cdecl MainWindow::onEditBudget(void)" (?onEditBudget@MainWindow@@AEAAXXZ)" in Funktion ""private: static void __cdecl MainWindow::qt_static_metacall(class QObject *,enum QMetaObject::Call,int,void * *)" (?qt_static_metacall@MainWindow@@CAXPEAVQObject@@W4Call@QMetaObject@@HPEAPEAX@Z)".
+moc_mainwindow.obj : error LNK2019: Verweis auf nicht aufgelöstes externes Symbol ""private: void __cdecl MainWindow::onGenerateReport(void)" (?onGenerateReport@MainWindow@@AEAAXXZ)" in Funktion ""private: static void __cdecl MainWindow::qt_static_metacall(class QObject *,enum QMetaObject::Call,int,void * *)" (?qt_static_metacall@MainWindow@@CAXPEAVQObject@@W4Call@QMetaObject@@HPEAPEAX@Z)".
+C:\Users\tobia\source\repos\Haushaltsbuch\x64\Debug\Haushaltsbuch.exe : fatal error LNK1120: 10 nicht aufgelöste Externe

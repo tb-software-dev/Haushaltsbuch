@@ -32,9 +32,6 @@
     </QtRcc>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="mainwindow.cpp">
-      <Filter>models</Filter>
-    </ClCompile>
     <ClCompile Include="transactions.cpp">
       <Filter>models</Filter>
     </ClCompile>
@@ -48,11 +45,15 @@
     <ClCompile Include="database.cpp">
       <Filter>models</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <QtMoc Include="mainwindow.h">
-      <Filter>models</Filter>
-    </QtMoc>
+    <ClCompile Include="budgetcontroller.cpp">
+      <Filter>controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="transactioncontroller.cpp">
+      <Filter>controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="mainwindow.cpp">
+      <Filter>views</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="transactions.h">
@@ -67,5 +68,16 @@
     <ClInclude Include="database.h">
       <Filter>models</Filter>
     </ClInclude>
+    <ClInclude Include="budgetcontroller.h">
+      <Filter>controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="transactioncontroller.h">
+      <Filter>controllers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="mainwindow.h">
+      <Filter>views</Filter>
+    </QtMoc>
   </ItemGroup>
 </Project>

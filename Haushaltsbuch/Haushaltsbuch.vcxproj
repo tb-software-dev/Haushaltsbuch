@@ -107,9 +107,11 @@
   <ItemGroup>
     <ClCompile Include="Account.cpp" />
     <ClCompile Include="budget.cpp" />
+    <ClCompile Include="budgetcontroller.cpp" />
     <ClCompile Include="database.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainwindow.cpp" />
+    <ClCompile Include="transactioncontroller.cpp" />
     <ClCompile Include="transactions.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -118,7 +120,9 @@
   <ItemGroup>
     <ClInclude Include="Account.h" />
     <ClInclude Include="budget.h" />
+    <ClInclude Include="budgetcontroller.h" />
     <ClInclude Include="database.h" />
+    <ClInclude Include="transactioncontroller.h" />
     <ClInclude Include="transactions.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
