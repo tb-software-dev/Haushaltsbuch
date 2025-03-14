@@ -14,6 +14,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>qrc;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="views\tabs">
+      <UniqueIdentifier>{0392d0de-b03b-47e0-8dbd-5e2975027465}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="transactiondialog.ui">
@@ -54,6 +57,15 @@
     <ClCompile Include="mainwindow.cpp">
       <Filter>views</Filter>
     </ClCompile>
+    <ClCompile Include="transactiondialog.cpp">
+      <Filter>views</Filter>
+    </ClCompile>
+    <ClCompile Include="budgetdialog.cpp">
+      <Filter>views</Filter>
+    </ClCompile>
+    <ClCompile Include="transactionstab.cpp">
+      <Filter>views\tabs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="transactions.h">
@@ -78,6 +90,15 @@
   <ItemGroup>
     <QtMoc Include="mainwindow.h">
       <Filter>views</Filter>
+    </QtMoc>
+    <QtMoc Include="transactiondialog.h">
+      <Filter>views</Filter>
+    </QtMoc>
+    <QtMoc Include="budgetdialog.h">
+      <Filter>views</Filter>
+    </QtMoc>
+    <QtMoc Include="transactionstab.h">
+      <Filter>views\tabs</Filter>
     </QtMoc>
   </ItemGroup>
 </Project>
