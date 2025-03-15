@@ -2,106 +2,67 @@
 
 #include <QMainWindow>
 #include <QLabel>
-#include <QDateEdit>
-#include <QTableView>
-#include <QComboBox>
-#include <QPushButton>
+#include <QTabWidget>
 #include "budgetcontroller.h"
 #include "transactioncontroller.h"
 #include "database.h"
+#include "transactionstab.h"
+#include "budgettab.h"
+#include "reportstab.h"
 
-class QStandardItemModel;
-
-QT_BEGIN_NAMESPACE
-
-namespace Ui
-{
-	class MainWindow;
-}
-
-QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow
 {
 	Q_OBJECT
 
-
 public:
-	// 
-	MainWindow(QWidget* parent = nullptr);
-	~MainWindow();
+	// Konstruktor
+	explicit MainWindow(QWidget* parent = nullptr);
 
+	// Destruktor
+	~MainWindow();
 
 private slots:
 
-	// Aktions-Slots
-	void onAddTransaction();
-	void onEditTransaction();
-	void onDeleteTransaction();
-	void onFilterTransactions();
-	void onDateRangeTransactions();
-	void onAddBudget();
-	void onEditBudget();
-	void onGenerateReport();
+	// Aktualisiert die Statusleiste mit den aktuellen Finanzdaten
+	void updateStatusLabel();
 
+	// Exportiert die Daten in eine Datei
+	void onExport();
 
+	// Importiert Daten aus einer Datei
+	void onImport();
 
+	// Zeigt den Einstellungsdialog an
+	void onSettings();
 
-
+	// Zeigt den About-Dialog an
+	void onAbout();
 
 private:
-
-	// UI
-	Ui::MainWindow* ui;
+	// UI-Komponenten
 	QTabWidget* m_tabWidget;
-
-	// Transaktionen-Tab
-	QWidget* m_transactionsTab;
-	QDateEdit* m_startDateEdit;
-	QDateEdit* m_endDateEdit;
-	QTableView* m_transactionsTable;
-	QStandardItemModel* m_transactionsModel;
-	QPushButton* m_addTransactionButton;
-	QPushButton* m_editTransactionButton;
-	QPushButton* m_deleteTransactionButton;
-
-	// Budget-Tab
-	QWidget* m_budgetTab;
-	QTableView* m_budgetTable;
-	QStandardItemModel* m_budgetModel;
-	QPushButton* m_addBudgetButton;
-	QPushButton* m_editBudgetButton;
-
-	// Berichte-Tab
-	QWidget* m_reportsTab;
-	QComboBox* m_reportTypeComboBox;
-	QDateEdit* m_reportStartDateEdit;
-	QDateEdit* m_reportEndDateEdit;
-	QPushButton* m_generateReportButton;
-	QWidget* m_reportContainer;
-
-	// Status-Anzeige
+	TransactionsTab* m_transactionsTab;
+	BudgetTab* m_budgetTab;
+	ReportsTab* m_reportsTab;
 	QLabel* m_statusLabel;
 
-	// Controller
-	Database* m_database;
+	// Controller und Datenbank
+	Database* m_database;		// Datenbankverbindung
 	TransactionController* m_transactionController;
 	BudgetController* m_budgetController;
 
 
-	// Setup-Methoden
+	// Initialisiert die Benutzeroberfläche
 	void setupUi();
-	void setupTransactionsTab();
-	void setupBudgetTab();
-	void setupReportsTab();
+
+	// Richtet die Menüs ein
+	void setupMenus();
+
+	// Richtet die Statusleiste ein
 	void setupStatusBar();
 
-	// Helper-Methoden
-	void updateTransactionsTable();
-	void updateBudgetTable();
-	void updateStatusLabel();
-	void showTransactionDialog(const Transaction& transaction = Transaction());
-	void showBudgetDialog(const QString& category = QString(), double amount = 0.0);
-
+	// Stellt Verbindungen zwischen Signalen und Slots her
+	void setupConnections();
 
 };

@@ -1,19 +1,16 @@
 #include "mainwindow.h"
-#include "ui_MainWindow.h"
-#include "ui_transactiondialog.h"
-#include "ui_budgetdialog.h"
-#include <QTabWidget>
 #include <QVBoxLayout>
-#include <QHBoxLayout>
-#include <QGroupBox>
-#include <QStandardItemModel>
-#include <QHeaderView>
 #include <QMessageBox>
 #include <QStatusBar>
+#include <QMenuBar>
+#include <QMenu>
+#include <QAction>
+#include <QFileDialog>
+#include <QDate>
 
-MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWindow)
+MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
 {
-	ui->setupUi(this);
+	// Datenbank initialisieren
 	m_database = new Database();
 
 	if (!m_database->initialize())
@@ -26,21 +23,20 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWi
 	m_transactionController = new TransactionController(m_database);
 	m_budgetController = new BudgetController(m_database);
 
-	// Daten laden
-	updateTransactionsTable();
-	updateBudgetTable();
-	updateStatusLabel();
+	// UI einrichteen
+	setupUi();
+	setupMenus();
+	setupStatusBar();
+	setupConnections();
 
 	// Fenstereigenschaften setzen
 	setWindowTitle(tr("Haushaltsbuch"));
 	resize(800, 600);
-
-
 }
 
 MainWindow::~MainWindow()
 {
-	delete ui;
+	// Resourcen freigeben
 	delete m_transactionController;
 	delete m_budgetController;
 	delete m_database;
@@ -59,60 +55,48 @@ void MainWindow::setupUi()
 	m_tabWidget = new QTabWidget(centralWidget);
 	mainLayout->addWidget(m_tabWidget);
 
-	// Tabs einrichten
-	setupTransactionsTab();
-	setupBudgetTab();
-	setupReportsTab();
+	// Tabs erstellen und hinzufügen
+	m_transactionsTab = new TransactionsTab(m_transactionController, m_tabWidget);
+	m_budgetTab = new BudgetTab(m_budgetController, m_tabWidget);
+	m_reportsTab = new ReportsTab(m_transactionController, m_budgetController, m_tabWidget);
 
-	// Statusleiste einrichten
-	setupStatusBar();
+	m_tabWidget->addTab(m_transactionsTab, tr("Transaktionen"));
+	m_tabWidget->addTab(m_budgetTab, tr("Budget"));
+	m_tabWidget->addTab(m_reportsTab, tr("Berichte"));
+
 }
 
-void MainWindow::setupTransactionsTab()
+void MainWindow::setupMenus()
 {
-	m_transactionsTab = new QWidget();
-	QVBoxLayout* layout = new QVBoxLayout(m_transactionsTab);
+	// Datei-Menü
+	QMenu* fileMenu = menuBar()->addMenu(tr("Datei"));
 
-	// Datumbereichsauswahl
-	QGroupBox* dateRangeGroup = new QGroupBox(tr("Zeitraum"));
-	QHBoxLayout* dateRangeLayout = new QHBoxLayout(dateRangeGroup);
+	QAction* exportAction = new QAction(tr("Exportieren"), this);
+	connect(exportAction, &QAction::triggered, this, &MainWindow::onExport);
+	fileMenu->addAction(exportAction);
 
-	QLabel* startDateLabel = new QLabel(tr("Von:"));
-	m_startDateEdit = new QDateEdit();
-	m_startDateEdit->setCalendarPopup(true);
-	m_startDateEdit->setDate(QDate::currentDate().addMonths(-1));
+	QAction* importAction = new QAction(tr("Importieren"), this);
+	connect(importAction, &QAction::triggered, this, &MainWindow::onImport);
+	fileMenu->addAction(importAction);
 
-	QLabel* endDateLabel = new QLabel(tr("Bis:"));
-	m_endDateEdit = new QDateEdit();
-	m_endDateEdit->setCalendarPopup(true);
-	m_endDateEdit->setDate(QDate::currentDate());
+	fileMenu->addSeparator();
 
-	QPushButton* filterButton = new QPushButton(tr("Filter"));
+	QAction* exitAction = new QAction(tr("Beenden"), this);
+	connect(exitAction, &QAction::triggered, this, &MainWindow::close);
+	fileMenu->addAction(exitAction);
 
-	dateRangeLayout->addWidget(startDateLabel);
-	dateRangeLayout->addWidget(m_startDateEdit);
-	dateRangeLayout->addWidget(endDateLabel);
-	dateRangeLayout->addWidget(m_endDateEdit);
-	dateRangeLayout->addWidget(filterButton);
-	dateRangeLayout->addStretch();
+	// Bearbeiten-Menü
+	QMenu* editMenu = menuBar()->addMenu(tr("Bearbeiten"));
 
-	layout->addWidget(dateRangeGroup);
+	QAction* settingsAction = new QAction(tr("Einstellungen"), this);
+	connect(settingsAction, &QAction::triggered, this, &MainWindow::onSettings);
+	editMenu->addAction(settingsAction);
 
-	m_transactionsModel = new QStandardItemModel(this);
-	m_transactionsModel->setHorizontalHeaderLabels(
-		QStringList() << tr("ID") << tr("Datum") << tr("Kategorie") << tr("Beschreibung") << tr("Betrag"));
+	// Hilfe-Menü
+	QMenu* helpMenu = menuBar()->addMenu(tr("Hilfe"));
 
-	m_transactionsTable = new QTableView();
-	m_transactionsTable->setModel(m_transactionsModel);
-	m_transactionsTable->setSelectionBehavior(QAbstractItemView::SelectRows);
-	m_transactionsTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
-	m_transactionsTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-	m_transactionsTable->verticalHeader()->setVisible(false);
-	m_transactionsTable->setSortingEnabled(true);
-
-	layout->addWidget(m_transactionsTable);
-
-
-
+	QAction* aboutAction = new QAction(tr("Über"), this);
+	connect(aboutAction, &QAction::triggered, this, &MainWindow::onAbout);
+	helpMenu->addAction(aboutAction);
 
 }

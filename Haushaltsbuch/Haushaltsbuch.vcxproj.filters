@@ -17,6 +17,9 @@
     <Filter Include="views\tabs">
       <UniqueIdentifier>{0392d0de-b03b-47e0-8dbd-5e2975027465}</UniqueIdentifier>
     </Filter>
+    <Filter Include="views\reports">
+      <UniqueIdentifier>{7a333fbb-70a2-44b5-a2af-046504dc434a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="transactiondialog.ui">
@@ -66,6 +69,15 @@
     <ClCompile Include="transactionstab.cpp">
       <Filter>views\tabs</Filter>
     </ClCompile>
+    <ClCompile Include="budgettab.cpp">
+      <Filter>views\tabs</Filter>
+    </ClCompile>
+    <ClCompile Include="reportstab.cpp">
+      <Filter>views\tabs</Filter>
+    </ClCompile>
+    <ClCompile Include="incomeexpensereport.cpp">
+      <Filter>views\reports</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="transactions.h">
@@ -86,6 +98,12 @@
     <ClInclude Include="transactioncontroller.h">
       <Filter>controllers</Filter>
     </ClInclude>
+    <ClInclude Include="reportgenerator.h">
+      <Filter>views\reports</Filter>
+    </ClInclude>
+    <ClInclude Include="incomeexpensereport.h">
+      <Filter>views\reports</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="mainwindow.h">
@@ -98,6 +116,12 @@
       <Filter>views</Filter>
     </QtMoc>
     <QtMoc Include="transactionstab.h">
+      <Filter>views\tabs</Filter>
+    </QtMoc>
+    <QtMoc Include="budgettab.h">
+      <Filter>views\tabs</Filter>
+    </QtMoc>
+    <QtMoc Include="reportstab.h">
       <Filter>views\tabs</Filter>
     </QtMoc>
   </ItemGroup>

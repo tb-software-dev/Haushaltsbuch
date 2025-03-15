@@ -9,7 +9,9 @@
 -IC:/Qt/6.8.2/msvc2022_64/include/QtQuickWidgets
 -IC:/Qt/6.8.2/msvc2022_64/include/QtWebView
 -IC:/Qt/6.8.2/msvc2022_64/include/QtWebEngineQuick
+-IC:/Qt/6.8.2/msvc2022_64/include/QtWebEngineWidgets
 -IC:/Qt/6.8.2/msvc2022_64/include/QtWebEngineCore
+-IC:/Qt/6.8.2/msvc2022_64/include/QtQuickTimeline
 -IC:/Qt/6.8.2/msvc2022_64/include/QtQuick
 -IC:/Qt/6.8.2/msvc2022_64/include/QtCharts
 -IC:/Qt/6.8.2/msvc2022_64/include/QtDesigner
@@ -21,6 +23,7 @@
 -IC:/Qt/6.8.2/msvc2022_64/include/QtGui/6.8.2/QtGui
 -IC:/Qt/6.8.2/msvc2022_64/include/QtHelp
 -IC:/Qt/6.8.2/msvc2022_64/include/QtMultimediaWidgets
+-IC:/Qt/6.8.2/msvc2022_64/include/QtPrintSupport
 -IC:/Qt/6.8.2/msvc2022_64/include/QtSvgWidgets
 -IC:/Qt/6.8.2/msvc2022_64/include/QtUiPlugin
 -IC:/Qt/6.8.2/msvc2022_64/include/QtWidgets
@@ -47,6 +50,7 @@
 -IC:/Qt/6.8.2/msvc2022_64/include/QtCore5Compat
 -IC:/Qt/6.8.2/msvc2022_64/include/QtConcurrent
 -IC:/Qt/6.8.2/msvc2022_64/include/QtSql
+-IC:/Qt/6.8.2/msvc2022_64/include/QtScxml
 -IC:/Qt/6.8.2/msvc2022_64/include/QtPositioning
 -IC:/Qt/6.8.2/msvc2022_64/include/QtXml
 -IC:/Qt/6.8.2/msvc2022_64/include/QtCore
