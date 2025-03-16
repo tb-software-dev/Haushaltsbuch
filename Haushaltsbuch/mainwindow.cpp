@@ -100,3 +100,95 @@ void MainWindow::setupMenus()
 	helpMenu->addAction(aboutAction);
 
 }
+
+void MainWindow::setupStatusBar()
+{
+	// Status-Label erstellen
+	m_statusLabel = new QLabel();
+	statusBar()->addWidget(m_statusLabel);
+
+	// Status aktualisieren
+	updateStatusLabel();
+}
+
+void MainWindow::setupConnections()
+{
+	// Verbindungen zu den Tabs herstellen
+	connect(m_transactionsTab, &TransactionsTab::statusChanged,
+		this, &MainWindow::updateStatusLabel);
+
+	connect(m_budgetTab, &BudgetTab::budgetChanged,
+		this, &MainWindow::updateStatusLabel);
+}
+
+void MainWindow::updateStatusLabel()
+{
+	// Aktuelles Datum für den Monatszeitraum
+	QDate startDate = QDate(QDate::currentDate().year(), QDate::currentDate().month(), 1);
+	QDate endDate = startDate.addMonths(1).addDays(-1);
+
+	// Einnahmen und Ausgaben für den aktuellen Monat berechnen
+	double income = m_transactionController->getTotalIncome(startDate, endDate);
+	double expense = m_transactionController->getTotalExpense(startDate, endDate);
+	double balance = income - expense;
+
+	// Status-Text erstellen
+	QString statusText = tr("Aktueller Monat: Einnahmen: %1 € | Ausgaben: %2 € | Saldo: %3 €")
+		.arg(income, 0, 'f', 2)
+		.arg(expense, 0, 'f', 2)
+		.arg(balance, 0, 'f', 2);
+
+	// Status-Label aktualisieren
+	m_statusLabel->setText(statusText);
+}
+
+void MainWindow::onExport()
+{
+	// Dateinamen über Dialog abrufen
+	QString fileName = QFileDialog::getSaveFileName(
+		this, tr("Daten exportieren"),
+		QDir::homePath(), tr("CSV-Dateien (*.csv);;Alle Dateien (*.*)"));
+
+	if (fileName.isEmpty())
+	{
+		return;
+	}
+
+	// Platzhalter Export-Funktion
+	QMessageBox::information(this, tr("Exportieren"),
+		tr("Export nach %1 noch nicht implementiert.").arg(fileName));
+}
+
+void MainWindow::onImport()
+{
+	// Dateinamen über Dialog abrufen
+	QString fileName = QFileDialog::getOpenFileName(
+		this, tr("Daten importieren"),
+		QDir::homePath(), tr("CSV-Dateien (*.csv);;Alle Dateien (*.*)"));
+
+	if (fileName.isEmpty())
+	{
+		return;
+	}
+
+	// Platzhalter Import-Funktion
+	QMessageBox::information(this, tr("Importieren"),
+		tr("Import von %1 noch nicht implementiert.").arg(fileName));
+}
+
+void MainWindow::onSettings()
+{
+	// Platzhalter Einstellungs Dialog
+	QMessageBox::information(this, tr("Einstellungen"),
+		tr("Einstellungsdialog noch nicht implementiert."));
+}
+
+void MainWindow::onAbout()
+{
+
+	QMessageBox::about(this, tr("Über Haushaltsbuch"),
+		tr("<h3>Haushaltsbuch</h3>"
+			"<p>Version 1.0</p>"
+			"<p>Eine Anwendung zur Verwaltung persönlicher Finanzen.</p>"
+			"<p>Entwickelt mit Qt und C++.</p>"));
+}

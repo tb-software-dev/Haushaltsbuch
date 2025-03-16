@@ -37,7 +37,7 @@
   </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
     <QtInstall>6.8.2_msvc2022_64</QtInstall>
-    <QtModules>core;gui;network;qml;quick;quickcontrols2;quickdialogs2;quicklayouts;widgets;core5compat;concurrent;help;opengl;openglwidgets;multimedia;multimediawidgets;printsupport;quickwidgets;scxml;sql;svg;svgwidgets;webenginecore;webview;xml;positioning;charts;datavisualization;quicktimeline;webenginewidgets;designer;uitools</QtModules>
+    <QtModules>core;gui;network;qml;quick;quickcontrols2;quickdialogs2;quicklayouts;qmltest;testlib;widgets;core5compat;concurrent;help;opengl;openglwidgets;multimedia;multimediawidgets;printsupport;quickwidgets;scxml;sql;svg;svgwidgets;webenginecore;webview;xml;positioning;charts;datavisualization;quicktimeline;webenginewidgets;designer;uitools;uiplugin</QtModules>
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
@@ -109,8 +109,10 @@
     <ClCompile Include="budget.cpp" />
     <ClCompile Include="budgetcontroller.cpp" />
     <ClCompile Include="budgetdialog.cpp" />
+    <ClCompile Include="budgetoverviewreport.cpp" />
     <ClCompile Include="budgettab.cpp" />
     <ClCompile Include="database.cpp" />
+    <ClCompile Include="expensecategoryreport.cpp" />
     <ClCompile Include="incomeexpensereport.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainwindow.cpp" />
@@ -130,10 +132,12 @@
     <QtMoc Include="transactionstab.h" />
     <QtMoc Include="budgetdialog.h" />
     <QtMoc Include="budgettab.h" />
+    <ClInclude Include="budgetoverviewreport.h" />
     <ClInclude Include="database.h" />
     <QtMoc Include="reportstab.h" />
+    <ClInclude Include="expensecategoryreport.h" />
     <ClInclude Include="incomeexpensereport.h" />
-    <ClInclude Include="reportgenerator.h" />
+    <QtMoc Include="reportgenerator.h" />
     <ClInclude Include="transactioncontroller.h" />
     <QtMoc Include="transactiondialog.h" />
     <ClInclude Include="transactions.h" />

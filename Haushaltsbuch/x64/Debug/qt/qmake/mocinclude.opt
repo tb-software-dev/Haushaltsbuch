@@ -47,6 +47,8 @@
 -IC:/Qt/6.8.2/msvc2022_64/include/QtQmlIntegration
 -IC:/Qt/6.8.2/msvc2022_64/include/QtCore/6.8.2
 -IC:/Qt/6.8.2/msvc2022_64/include/QtCore/6.8.2/QtCore
+-IC:/Qt/6.8.2/msvc2022_64/include/QtQuickTest
+-IC:/Qt/6.8.2/msvc2022_64/include/QtTest
 -IC:/Qt/6.8.2/msvc2022_64/include/QtCore5Compat
 -IC:/Qt/6.8.2/msvc2022_64/include/QtConcurrent
 -IC:/Qt/6.8.2/msvc2022_64/include/QtSql

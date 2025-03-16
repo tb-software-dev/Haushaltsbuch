@@ -78,6 +78,12 @@
     <ClCompile Include="incomeexpensereport.cpp">
       <Filter>views\reports</Filter>
     </ClCompile>
+    <ClCompile Include="expensecategoryreport.cpp">
+      <Filter>views\reports</Filter>
+    </ClCompile>
+    <ClCompile Include="budgetoverviewreport.cpp">
+      <Filter>views\reports</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="transactions.h">
@@ -98,10 +104,13 @@
     <ClInclude Include="transactioncontroller.h">
       <Filter>controllers</Filter>
     </ClInclude>
-    <ClInclude Include="reportgenerator.h">
+    <ClInclude Include="incomeexpensereport.h">
       <Filter>views\reports</Filter>
     </ClInclude>
-    <ClInclude Include="incomeexpensereport.h">
+    <ClInclude Include="expensecategoryreport.h">
+      <Filter>views\reports</Filter>
+    </ClInclude>
+    <ClInclude Include="budgetoverviewreport.h">
       <Filter>views\reports</Filter>
     </ClInclude>
   </ItemGroup>
@@ -123,6 +132,9 @@
     </QtMoc>
     <QtMoc Include="reportstab.h">
       <Filter>views\tabs</Filter>
+    </QtMoc>
+    <QtMoc Include="reportgenerator.h">
+      <Filter>views\reports</Filter>
     </QtMoc>
   </ItemGroup>
 </Project>

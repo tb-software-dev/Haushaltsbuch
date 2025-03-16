@@ -2,13 +2,17 @@
 
 #include <QWidget>
 #include <QDate>
+#include <QObject>
 
 // Diese abstrakte Klasse ermöglicht die einheitliche Behandlung verschiedener Berichtstypen.
 
-class ReportGenerator
+class ReportGenerator : public QObject
 {
+	Q_OBJECT
+
 public:
-	virtual ~ReportGenerator() { }
+
+	virtual ~ReportGenerator() {}
 
 	// Generiert einen Bericht für den angegebenen Zeitraum und fügt ihn zum Container hinzu
 	virtual void generateReport(QWidget* container, const QDate& startDate, const QDate& endDate) = 0;
