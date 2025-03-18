@@ -61,9 +61,9 @@ void TransactionsTab::setupUi()
 
 	// Aktionsbuttons
 	QHBoxLayout* buttonsLayout = new QHBoxLayout();
-	m_addTransactionButton = new QPushButton(tr("Hinzufügen"));
-	m_editTransactionButton = new QPushButton(tr("Bearbeiten"));
-	m_deleteTransactionButton = new QPushButton(tr("Löschen"));
+	m_addTransactionButton = new QPushButton(QString::fromUtf8("Neue Transaktion"));
+	m_editTransactionButton = new QPushButton(QString::fromUtf8("Bearbeiten"));
+	m_deleteTransactionButton = new QPushButton(QString::fromUtf8("Entfernen"));
 
 	buttonsLayout->addWidget(m_addTransactionButton);
 	buttonsLayout->addWidget(m_editTransactionButton);
@@ -120,7 +120,7 @@ void TransactionsTab::updateTransactionTable()
 
 		// Betrag
 		QStandardItem* amountItem = new QStandardItem(
-			QString("%1 €").arg(transaction.amount(), 0, 'f', 2));
+			QString("%1 \u20AC").arg(transaction.amount(), 0, 'f', 2));
 		amountItem->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
 		row.append(amountItem);
 

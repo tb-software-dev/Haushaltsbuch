@@ -7,6 +7,7 @@
 #include <QAction>
 #include <QFileDialog>
 #include <QDate>
+#include "currencyformatter.h"
 
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent)
 {
@@ -95,7 +96,7 @@ void MainWindow::setupMenus()
 	// Hilfe-Menü
 	QMenu* helpMenu = menuBar()->addMenu(tr("Hilfe"));
 
-	QAction* aboutAction = new QAction(tr("Über"), this);
+	QAction* aboutAction = new QAction(tr("Uber"), this);
 	connect(aboutAction, &QAction::triggered, this, &MainWindow::onAbout);
 	helpMenu->addAction(aboutAction);
 
@@ -133,10 +134,10 @@ void MainWindow::updateStatusLabel()
 	double balance = income - expense;
 
 	// Status-Text erstellen
-	QString statusText = tr("Aktueller Monat: Einnahmen: %1 € | Ausgaben: %2 € | Saldo: %3 €")
-		.arg(income, 0, 'f', 2)
-		.arg(expense, 0, 'f', 2)
-		.arg(balance, 0, 'f', 2);
+	QString statusText = tr("Aktueller Monat: Einnahmen: %1  | Ausgaben: %2  | Saldo: %3 ")
+		.arg(CurrencyFormatter::formatCurrency(income))
+		.arg(CurrencyFormatter::formatCurrency(expense))
+		.arg(CurrencyFormatter::formatCurrency(balance));
 
 	// Status-Label aktualisieren
 	m_statusLabel->setText(statusText);
@@ -186,9 +187,10 @@ void MainWindow::onSettings()
 void MainWindow::onAbout()
 {
 
-	QMessageBox::about(this, tr("Über Haushaltsbuch"),
+	QMessageBox::about(this, tr("Info"),
 		tr("<h3>Haushaltsbuch</h3>"
 			"<p>Version 1.0</p>"
-			"<p>Eine Anwendung zur Verwaltung persönlicher Finanzen.</p>"
-			"<p>Entwickelt mit Qt und C++.</p>"));
+			"<p>Eine Anwendung zur Verwaltung der eigenen Finanzen.</p>"
+			"<p>Entwickelt von Tobias Brandl<p>"		
+		));
 }

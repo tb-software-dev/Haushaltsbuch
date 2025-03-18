@@ -80,7 +80,7 @@
   </action>
   <action name="actionUeber">
    <property name="text">
-    <string>Über...</string>
+    <string>Uber...</string>
    </property>
   </action>
  </widget>

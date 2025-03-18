@@ -57,11 +57,11 @@
 -IC:/Qt/6.8.2/msvc2022_64/include/QtXml
 -IC:/Qt/6.8.2/msvc2022_64/include/QtCore
 -IC:/Qt/6.8.2/msvc2022_64/include/QtWebChannelQuick
--IC:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include
--IC:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\atlmfc\include
--IC:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include
+-IC:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.43.34808\include
+-IC:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.43.34808\atlmfc\include
+-IC:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Auxiliary\VS\include
 -IC:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt
--IC:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\UnitTest\include
+-IC:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Auxiliary\VS\UnitTest\include
 -IC:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um
 -IC:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\shared
 -IC:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\winrt

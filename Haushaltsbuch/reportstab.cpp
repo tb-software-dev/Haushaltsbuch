@@ -43,7 +43,7 @@ void ReportsTab::setupUi()
 	m_reportTypeComboBox = new QComboBox();
 	m_reportTypeComboBox->addItem(tr("Einnahmen/Ausgaben"));
 	m_reportTypeComboBox->addItem(tr("Ausgaben nach Kategorie"));
-	m_reportTypeComboBox->addItem(tr("Budget-Übersicht"));
+	m_reportTypeComboBox->addItem(tr("Budget-Dashboard"));
 
 	QLabel* startDateLabel = new QLabel(tr("Von:"));
 	m_startDateEdit = new QDateEdit();
@@ -73,7 +73,7 @@ void ReportsTab::setupUi()
 	QVBoxLayout* containerLayout = new QVBoxLayout(m_reportContainer);
 
 	// Platzhaltertext
-	QLabel* placeholderLabel = new QLabel(tr("Bitte wählen Sie einen Berichtstyp und klicken sie auf 'Bericht erstellen'."));
+	QLabel* placeholderLabel = new QLabel(QString::fromUtf8(""));
 	placeholderLabel->setAlignment(Qt::AlignCenter);
 	containerLayout->addWidget(placeholderLabel);
 

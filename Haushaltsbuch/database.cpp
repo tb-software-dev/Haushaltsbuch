@@ -207,3 +207,136 @@ QList<Transaction> Database::getTransactions(const QDate& startDate, const QDate
 	return transactions;
 
 }
+
+bool Database::saveBudget(const Budget& budget)
+{
+	// Alle alten Einträge löschen
+	QSqlQuery clearQuery;
+	clearQuery.prepare("DELETE FROM budgets");
+
+	if (!clearQuery.exec())
+	{
+		qDebug() << "Fehler beim Löschen der alten Budgets:" << clearQuery.lastError().text();
+		return false;
+	}
+
+	// Die neuen Budget-Einträge hinzufügen
+	QStringList categories = budget.getCategories();
+	bool success = true;
+
+	for (const QString& category : categories) {
+		double amount = budget.getBudget(category);
+
+		QSqlQuery insertQuery;
+		insertQuery.prepare(
+			"INSERT INTO budgets (category, amount) "
+			"VALUES (:category, :amount)");
+		insertQuery.bindValue(":category", category);
+		insertQuery.bindValue(":amount", amount);
+
+		if (!insertQuery.exec())
+		{
+			qDebug() << "Fehler beim Speichern des Budgets für" << category << ":" << insertQuery.lastError().text();
+			success = false;
+		}
+	}
+
+	return success;
+}
+
+Budget Database::getBudget()
+{
+	Budget budget;
+
+	QSqlQuery query;
+	query.prepare("SELECT category, amount FROM budgets");
+
+	if (query.exec()) {
+		while (query.next()) {
+			QString category = query.value("category").toString();
+			double amount = query.value("amount").toDouble();
+			budget.setBudget(category, amount);
+		}
+	}
+	else {
+		qDebug() << "Fehler beim Abrufen der Budgets:" << query.lastError().text();
+	}
+
+	return budget;
+}
+
+// Füge auch diese Implementierungen hinzu, falls sie fehlen:
+
+bool Database::saveAccount(Account& account)
+{
+	QSqlQuery query;
+
+	if (account.name().isEmpty()) {
+		qDebug() << "Fehler: Kontoname darf nicht leer sein";
+		return false;
+	}
+
+	// Prüfen, ob das Konto bereits existiert
+	int accountId = -1;
+	QSqlQuery checkQuery;
+	checkQuery.prepare("SELECT id FROM accounts WHERE name = :name");
+	checkQuery.bindValue(":name", account.name());
+
+	if (checkQuery.exec() && checkQuery.next()) {
+		accountId = checkQuery.value("id").toInt();
+
+		// Konto aktualisieren
+		QSqlQuery updateQuery;
+		updateQuery.prepare("UPDATE accounts SET balance = :balance WHERE id = :id");
+		updateQuery.bindValue(":balance", account.balance());
+		updateQuery.bindValue(":id", accountId);
+
+		if (!updateQuery.exec()) {
+			qDebug() << "Fehler beim Aktualisieren des Kontos:" << updateQuery.lastError().text();
+			return false;
+		}
+	}
+	else {
+		// Neues Konto einfügen
+		QSqlQuery insertQuery;
+		insertQuery.prepare("INSERT INTO accounts (name, balance) VALUES (:name, :balance)");
+		insertQuery.bindValue(":name", account.name());
+		insertQuery.bindValue(":balance", account.balance());
+
+		if (!insertQuery.exec()) {
+			qDebug() << "Fehler beim Speichern des Kontos:" << insertQuery.lastError().text();
+			return false;
+		}
+
+		accountId = insertQuery.lastInsertId().toInt();
+	}
+
+	// Konto-ID für nachfolgende Transaktionsbehandlung aktualisieren
+	// (In diesem vereinfachten Beispiel machen wir nichts damit)
+
+	return true;
+}
+
+QList<Account> Database::getAccounts() {
+	QList<Account> accounts;
+
+	QSqlQuery query;
+	query.prepare("SELECT id, name, balance FROM accounts");
+
+	if (query.exec()) {
+		while (query.next()) {
+			QString name = query.value("name").toString();
+			double balance = query.value("balance").toDouble();
+
+			Account account(name, balance);
+			// account.setId(query.value("id").toInt());  // Falls Account eine ID hat
+
+			accounts.append(account);
+		}
+	}
+	else {
+		qDebug() << "Fehler beim Abrufen der Konten:" << query.lastError().text();
+	}
+
+	return accounts;
+}

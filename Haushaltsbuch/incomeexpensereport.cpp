@@ -11,9 +11,11 @@
 #include <QValueAxis>
 #include <QMessageBox>
 #include <QWidget>
+#include <QTextCodec>
+#include <QLocale>
 
 
-
+QLocale locale(QLocale::German, QLocale::Germany);
 
 IncomeExpenseReport::IncomeExpenseReport(TransactionController* transactionController)
     : m_transactionController(transactionController) 
@@ -23,6 +25,9 @@ IncomeExpenseReport::IncomeExpenseReport(TransactionController* transactionContr
 
 void IncomeExpenseReport::generateReport(QWidget* container, const QDate& startDate, const QDate& endDate)
 {
+    //
+    
+
     QVBoxLayout* layout = qobject_cast<QVBoxLayout*>(container->layout());
 
     // Titel hinzufügen
@@ -51,15 +56,15 @@ void IncomeExpenseReport::generateReport(QWidget* container, const QDate& startD
     QGroupBox* summaryGroup = new QGroupBox(tr("Zusammenfassung"));
     QFormLayout* summaryLayout = new QFormLayout(summaryGroup);
 
-    QLabel* incomeLabel = new QLabel(QString("%1 €").arg(totalIncome, 0, 'f', 2));
+    QLabel* incomeLabel = new QLabel(QString("%1 \u20AC").arg(totalIncome, 0, 'f', 2));
     incomeLabel->setStyleSheet("color: green;");
     summaryLayout->addRow(tr("Gesamteinnahmen:"), incomeLabel);
 
-    QLabel* expenseLabel = new QLabel(QString("%1 €").arg(totalExpense, 0, 'f', 2));
+    QLabel* expenseLabel = new QLabel(QString("%1 \u20AC").arg(totalExpense, 0, 'f', 2));
     expenseLabel->setStyleSheet("color: red;");
     summaryLayout->addRow(tr("Gesamtausgaben:"), expenseLabel);
 
-    QLabel* balanceLabel = new QLabel(QString("%1 €").arg(balance, 0, 'f', 2));
+    QLabel* balanceLabel = new QLabel(QString("%1 \u20AC").arg(balance, 0, 'f', 2));
     balanceLabel->setStyleSheet(balance >= 0 ? "color: green;" : "color: red;");
     summaryLayout->addRow(tr("Saldo:"), balanceLabel);
 
@@ -96,7 +101,7 @@ void IncomeExpenseReport::generateReport(QWidget* container, const QDate& startD
 
     // Achsen konfigurieren
     QStringList categories;
-    categories << tr("Beträge");
+    categories << QString::fromUtf8("Transaktionen");
 
     QBarCategoryAxis* axisX = new QBarCategoryAxis();
     axisX->append(categories);
@@ -105,7 +110,7 @@ void IncomeExpenseReport::generateReport(QWidget* container, const QDate& startD
 
     QValueAxis* axisY = new QValueAxis();
     axisY->setRange(0, qMax(totalIncome, totalExpense) * 1.1);
-    axisY->setLabelFormat("%d €");
+    axisY->setLabelFormat(QStringLiteral("%d €"));
     chart->addAxis(axisY, Qt::AlignLeft);
     series->attachAxis(axisY);
 
@@ -121,7 +126,7 @@ void IncomeExpenseReport::generateReport(QWidget* container, const QDate& startD
     layout->addWidget(chartView);
 
     // Optional: Zusätzliche Informationen hinzufügen
-    QLabel* noteLabel = new QLabel(tr("Hinweis: Alle Beträge sind in Euro angegeben."));
+    QLabel* noteLabel = new QLabel(tr("Hinweis: Alle Transaktionen sind in Euro angegeben."));
     noteLabel->setAlignment(Qt::AlignCenter);
     noteLabel->setStyleSheet("color: gray; font-style: italic;");
     layout->addWidget(noteLabel);

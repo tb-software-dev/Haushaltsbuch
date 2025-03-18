@@ -94,7 +94,7 @@ public:
     {
         BudgetDialog->setWindowTitle(QCoreApplication::translate("BudgetDialog", "Budget bearbeiten", nullptr));
         categoryLabel->setText(QCoreApplication::translate("BudgetDialog", "Kategorie:", nullptr));
-        amountLabel->setText(QCoreApplication::translate("BudgetDialog", "Budgetbetrag (\342\202\254):", nullptr));
+        amountLabel->setText(QCoreApplication::translate("BudgetDialog", "Budgetbetrag ", nullptr));
         amountSpinBox->setSuffix(QCoreApplication::translate("BudgetDialog", " \342\202\254", nullptr));
     } // retranslateUi
 

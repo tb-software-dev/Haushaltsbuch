@@ -5,15 +5,19 @@
 #include <QLibraryInfo>
 #include <QSettings>
 #include <QDir>
+#include <QTextCodec>
 
 int main(int argc, char* argv[])
 {
+	// Setze UTF-8 als Standardkodierung
+	
+
+
 	// QApplication erstellen
 	QApplication app(argc, argv);
 
 	// Anwendungsinformationen setzen
 	QApplication::setApplicationName("Haushaltsbuch");
-	QApplication::setOrganizationName("Tobias Brandl");
 	QApplication::setApplicationVersion("1.0");
 
 	// Lokalisierung einrichten

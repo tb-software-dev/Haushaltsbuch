@@ -12,6 +12,9 @@
 #include <QValueAxis>
 #include <QFont>
 
+//
+
+
 
 // Konstruktor
 BudgetOverviewReport::BudgetOverviewReport(TransactionController* transactionController,
@@ -27,7 +30,7 @@ void BudgetOverviewReport::generateReport(QWidget* container, const QDate& start
 	QVBoxLayout* layout = qobject_cast<QVBoxLayout*>(container->layout());
 
 	// Titel hinzufügen
-	QLabel* titleLabel = new QLabel(QObject::tr("Budget-Übersicht"), container);
+	QLabel* titleLabel = new QLabel(QString::fromUtf8("Budget-Dashboard"), container);
 	titleLabel->setAlignment(Qt::AlignCenter);
 	QFont titleFont;
 	titleFont.setPointSize(14);
@@ -94,17 +97,17 @@ void BudgetOverviewReport::generateReport(QWidget* container, const QDate& start
 		table->setItem(row, 0, categoryItem);
 
 		// Budget
-		QTableWidgetItem* budgetItem = new QTableWidgetItem(QString("%1 €").arg(budgetAmount, 0, 'f', 2));
+		QTableWidgetItem* budgetItem = new QTableWidgetItem(QString("%1 \u20AC").arg(budgetAmount, 0, 'f', 2));
 		budgetItem->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
 		table->setItem(row, 1, budgetItem);
 
 		// Ausgegeben 
-		QTableWidgetItem* spentItem = new QTableWidgetItem(QString("%1 €").arg(currentSpending, 0, 'f', 2));
+		QTableWidgetItem* spentItem = new QTableWidgetItem(QString("%1 \u20AC").arg(currentSpending, 0, 'f', 2));
 		spentItem->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
 		table->setItem(row, 2, spentItem);
 
 		// Verbleibend
-		QTableWidgetItem* remainingItem = new QTableWidgetItem(QString("%1 €").arg(remainingBudget, 0, 'f', 2));
+		QTableWidgetItem* remainingItem = new QTableWidgetItem(QString("%1 \u20AC").arg(remainingBudget, 0, 'f', 2));
 		remainingItem->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
 		remainingItem->setForeground(remainingBudget < 0 ? QColor(255, 0, 0) : QColor(0, 128, 0));
 		table->setItem(row, 3, remainingItem);
@@ -173,7 +176,7 @@ void BudgetOverviewReport::generateReport(QWidget* container, const QDate& start
 	}
 
 	axisY->setRange(0, maxValue * 1.1);
-	axisY->setLabelFormat("%d €");
+	axisY->setLabelFormat(QStringLiteral("%d Euro"));
 	chart->addAxis(axisY, Qt::AlignLeft);
 	series->attachAxis(axisY);
 
@@ -190,7 +193,7 @@ void BudgetOverviewReport::generateReport(QWidget* container, const QDate& start
 
 	// Hinweis für die Budgetverwaltung
 	QLabel* noteLabel = new QLabel(
-		QObject::tr("Tipp: Nutzen Sie den Budget-Tab, um Budget-Limits für Kategorien anzupassen."),
+		QObject::tr("Tipp: Nutzen Sie den Budget-Tab, um Budget-Limits fur Kategorien anzupassen."),
 		container);
 	noteLabel->setAlignment(Qt::AlignCenter);
 	noteLabel->setStyleSheet("color: gray; font-style: italic;");

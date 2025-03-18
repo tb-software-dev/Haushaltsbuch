@@ -20,6 +20,9 @@
     <Filter Include="views\reports">
       <UniqueIdentifier>{7a333fbb-70a2-44b5-a2af-046504dc434a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="utils">
+      <UniqueIdentifier>{0f77d9f4-3bd0-4164-b7e3-541a148df800}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="transactiondialog.ui">
@@ -84,6 +87,9 @@
     <ClCompile Include="budgetoverviewreport.cpp">
       <Filter>views\reports</Filter>
     </ClCompile>
+    <ClCompile Include="currencyformatter.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="transactions.h">
@@ -112,6 +118,9 @@
     </ClInclude>
     <ClInclude Include="budgetoverviewreport.h">
       <Filter>views\reports</Filter>
+    </ClInclude>
+    <ClInclude Include="currencyformatter.h">
+      <Filter>utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

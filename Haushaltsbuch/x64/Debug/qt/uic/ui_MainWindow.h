@@ -103,7 +103,7 @@ public:
         actionImportieren->setText(QCoreApplication::translate("MainWindow", "Importieren...", nullptr));
         actionBeenden->setText(QCoreApplication::translate("MainWindow", "Beenden", nullptr));
         actionEinstellungen->setText(QCoreApplication::translate("MainWindow", "Einstellungen...", nullptr));
-        actionUeber->setText(QCoreApplication::translate("MainWindow", "\303\234ber...", nullptr));
+        actionUeber->setText(QCoreApplication::translate("MainWindow", "Uber...", nullptr));
         menuDatei->setTitle(QCoreApplication::translate("MainWindow", "Datei", nullptr));
         menuBearbeiten->setTitle(QCoreApplication::translate("MainWindow", "Bearbeiten", nullptr));
         menuHilfe->setTitle(QCoreApplication::translate("MainWindow", "Hilfe", nullptr));

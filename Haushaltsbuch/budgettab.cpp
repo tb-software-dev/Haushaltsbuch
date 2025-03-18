@@ -4,6 +4,7 @@
 #include <QHBoxLayout>
 #include <QHeaderView>
 #include <QMessageBox>
+#include "currencyformatter.h"
 
 // Konstruktor
 BudgetTab::BudgetTab(BudgetController* budgetController, QWidget* parent)
@@ -34,8 +35,8 @@ void BudgetTab::setupUi()
 
 	// Aktionsbuttons
 	QHBoxLayout* buttonsLayout = new QHBoxLayout();
-	m_addBudgetButton = new QPushButton(tr("Hinzufügen"));
-	m_editBudgetButton = new QPushButton(tr("Bearbeiten"));
+	m_addBudgetButton = new QPushButton(QString::fromUtf8("Neues Budget"));
+	m_editBudgetButton = new QPushButton(QString::fromUtf8("Bearbeiten"));
 
 	buttonsLayout->addWidget(m_addBudgetButton);
 	buttonsLayout->addWidget(m_editBudgetButton);
@@ -79,19 +80,19 @@ void BudgetTab::updateBudgetTable()
 
 		// Budget
 		QStandardItem* budgetItem = new QStandardItem(
-			QString("%1 €").arg(budgetAmount, 0, 'f', 2));
+			CurrencyFormatter::formatCurrency(budgetAmount));
 		budgetItem->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
 		row.append(budgetItem);
 
 		// Ausgegeben
 		QStandardItem* spentItem = new QStandardItem(
-			QString("%1 €").arg(currentSpending, 0, 'f', 2));
+			CurrencyFormatter::formatCurrency(currentSpending));
 		spentItem->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
 		row.append(spentItem);
 
 		// Verbleibend
 		QStandardItem* remainingItem = new QStandardItem(
-			QString("%1 €").arg(remainingBudget, 0, 'f', 2));
+			CurrencyFormatter::formatCurrency(remainingBudget));
 		remainingItem->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
 		remainingItem->setForeground(isOverBudget ? QColor(255, 0, 0) : QColor(0, 128, 0));
 		row.append(remainingItem);

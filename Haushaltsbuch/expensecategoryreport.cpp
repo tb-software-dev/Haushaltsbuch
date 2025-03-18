@@ -7,8 +7,11 @@
 #include <QChartView>
 #include <QPieSeries>
 #include <QPieSlice>
+#include "budgetoverviewreport.h"
 
 using namespace std;
+
+
 
 // Konstruktor
 ExpenseCategoryReport::ExpenseCategoryReport(TransactionController* transactionController)
@@ -18,6 +21,8 @@ ExpenseCategoryReport::ExpenseCategoryReport(TransactionController* transactionC
 void ExpenseCategoryReport::generateReport(QWidget* container, const QDate& startDate, const QDate& endDate) {
     QVBoxLayout* layout = qobject_cast<QVBoxLayout*>(container->layout());
 
+
+   
     // Titel hinzufügen
     QLabel* titleLabel = new QLabel(tr("Ausgaben nach Kategorie"), container);
     titleLabel->setAlignment(Qt::AlignCenter);
@@ -50,7 +55,7 @@ void ExpenseCategoryReport::generateReport(QWidget* container, const QDate& star
 
     // Gesamtausgaben anzeigen
     QLabel* totalExpenseLabel = new QLabel(
-        tr("Gesamtausgaben: %1 €").arg(totalExpense, 0, 'f', 2),
+        tr("Gesamtausgaben: %1 \u20AC").arg(totalExpense, 0, 'f', 2),
         container);
     totalExpenseLabel->setAlignment(Qt::AlignCenter);
     QFont totalFont;
@@ -100,7 +105,7 @@ void ExpenseCategoryReport::generateReport(QWidget* container, const QDate& star
         table->setItem(row, 0, categoryItem);
 
         // Betrag
-        QTableWidgetItem* amountItem = new QTableWidgetItem(QString("%1 €").arg(amount, 0, 'f', 2));
+        QTableWidgetItem* amountItem = new QTableWidgetItem(QString("%1 \u20AC").arg(amount, 0, 'f', 2));
         amountItem->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
         table->setItem(row, 1, amountItem);
 
