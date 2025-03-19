@@ -17,7 +17,7 @@ Database::Database()
 	m_db.setDatabaseName(dbPath);
 }
 
-// Destruktor: Schlieﬂen der Datenbank-Verbindung falls sie bereits offen ist
+// Destruktor: Schlie√üen der Datenbank-Verbindung falls sie bereits offen ist
 Database::~Database()
 {
 	if (m_db.isOpen())
@@ -31,7 +31,7 @@ bool Database::initialize()
 {
 	if (!m_db.open())
 	{
-		qDebug() << "Fehler beim ÷ffnen der Datenbank:" << m_db.lastError().text();
+		qDebug() << "Fehler beim √ñffnen der Datenbank:" << m_db.lastError().text();
 		return false;
 	}
 
@@ -63,11 +63,11 @@ bool Database::createTransactionsTable()
 		"amount REAL NOT NULL, "					// Betrag
 		"category TEXT, "							// Kategorie
 		"description TEXT, "						// Beschreibung
-		"account_id INTEGER, "						// Verkn¸pfung zur Account-Tabelle
+		"account_id INTEGER, "						// Verkn√ºpfung zur Account-Tabelle
 		"FOREIGN KEY (account_id) REFERENCES accounts(id))");
 }
 
-// Erstellt die Tabelle f¸r die Budgets
+// Erstellt die Tabelle f√ºr die Budgets
 bool Database::createBudgetsTable()
 {
 	//
@@ -80,7 +80,7 @@ bool Database::createBudgetsTable()
 	);	
 }
 
-// Erstellt die Tabelle f¸r die Konten
+// Erstellt die Tabelle f√ºr die Konten
 bool Database::createAccountsTable()
 {
 	//
@@ -105,7 +105,7 @@ bool Database::saveTransaction(Transaction& transaction)
 		"VALUES (:type, :date, :amount, :category, :description, :account_id)"
 	);
 
-	// Platzhalter mit den Werten von der Transaktion f¸llen
+	// Platzhalter mit den Werten von der Transaktion f√ºllen
 	query.bindValue(":type", transaction.type());
 	query.bindValue(":date", transaction.date());
 	query.bindValue(":amount", transaction.amount());
@@ -114,7 +114,7 @@ bool Database::saveTransaction(Transaction& transaction)
 	
 	if (query.exec())
 	{
-		// ID der neu eingef¸gten Transaktion setzen
+		// ID der neu eingef√ºgten Transaktion setzen
 		transaction.setId(query.lastInsertId().toInt());
 		return true;
 	}
@@ -149,7 +149,7 @@ bool Database::updateTransaction(const Transaction& transaction)
 	return false;
 }
 
-// Lˆscht eine Transaktion anhand der ID
+// L√∂scht eine Transaktion anhand der ID
 bool Database::deleteTransaction(int id)
 {
 	QSqlQuery query;
@@ -162,11 +162,11 @@ bool Database::deleteTransaction(int id)
 		return true;
 	}
 
-	qDebug() << "Fehler beim Lˆschen der Transaktion:" << query.lastError().text();
+	qDebug() << "Fehler beim L√∂schen der Transaktion:" << query.lastError().text();
 	return false;
 }
 
-// Gibt alle Transaktionen in einem bestimmten Zeitraum zur¸ck
+// Gibt alle Transaktionen in einem bestimmten Zeitraum zur√ºck
 QList<Transaction> Database::getTransactions(const QDate& startDate, const QDate& endDate)
 {
 	QList<Transaction> transactions;
@@ -210,17 +210,17 @@ QList<Transaction> Database::getTransactions(const QDate& startDate, const QDate
 
 bool Database::saveBudget(const Budget& budget)
 {
-	// Alle alten Eintr‰ge lˆschen
+	// Alle alten Eintr√§ge l√∂schen
 	QSqlQuery clearQuery;
 	clearQuery.prepare("DELETE FROM budgets");
 
 	if (!clearQuery.exec())
 	{
-		qDebug() << "Fehler beim Lˆschen der alten Budgets:" << clearQuery.lastError().text();
+		qDebug() << "Fehler beim L√∂schen der alten Budgets:" << clearQuery.lastError().text();
 		return false;
 	}
 
-	// Die neuen Budget-Eintr‰ge hinzuf¸gen
+	// Die neuen Budget-Eintr√§ge hinzuf√ºgen
 	QStringList categories = budget.getCategories();
 	bool success = true;
 
@@ -236,7 +236,7 @@ bool Database::saveBudget(const Budget& budget)
 
 		if (!insertQuery.exec())
 		{
-			qDebug() << "Fehler beim Speichern des Budgets f¸r" << category << ":" << insertQuery.lastError().text();
+			qDebug() << "Fehler beim Speichern des Budgets f√ºr" << category << ":" << insertQuery.lastError().text();
 			success = false;
 		}
 	}
@@ -265,7 +265,7 @@ Budget Database::getBudget()
 	return budget;
 }
 
-// F¸ge auch diese Implementierungen hinzu, falls sie fehlen:
+
 
 bool Database::saveAccount(Account& account)
 {
@@ -276,7 +276,7 @@ bool Database::saveAccount(Account& account)
 		return false;
 	}
 
-	// Pr¸fen, ob das Konto bereits existiert
+	// Pr√ºfen, ob das Konto bereits existiert
 	int accountId = -1;
 	QSqlQuery checkQuery;
 	checkQuery.prepare("SELECT id FROM accounts WHERE name = :name");
@@ -297,7 +297,7 @@ bool Database::saveAccount(Account& account)
 		}
 	}
 	else {
-		// Neues Konto einf¸gen
+		// Neues Konto einf√ºgen
 		QSqlQuery insertQuery;
 		insertQuery.prepare("INSERT INTO accounts (name, balance) VALUES (:name, :balance)");
 		insertQuery.bindValue(":name", account.name());
@@ -311,7 +311,7 @@ bool Database::saveAccount(Account& account)
 		accountId = insertQuery.lastInsertId().toInt();
 	}
 
-	// Konto-ID f¸r nachfolgende Transaktionsbehandlung aktualisieren
+	// Konto-ID f√ºr nachfolgende Transaktionsbehandlung aktualisieren
 	// (In diesem vereinfachten Beispiel machen wir nichts damit)
 
 	return true;
