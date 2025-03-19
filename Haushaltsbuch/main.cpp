@@ -9,7 +9,7 @@
 
 int main(int argc, char* argv[])
 {
-	// Setze UTF-8 als Standardkodierung
+	
 	
 
 
@@ -29,16 +29,16 @@ int main(int argc, char* argv[])
 	//
 
 
-	// Standardeinstellungen festlegen , für den ersten Start
+	// Standardeinstellungen festlegen , fÃ¼r den ersten Start
 	QSettings settings;
 	if (!settings.contains("firstRun"))
 	{
 		settings.setValue("firstRun", false);
-		settings.setValue("defaultCurrency", "€");
+		settings.setValue("defaultCurrency", "â‚¬");
 		settings.setValue("defaultStartMonth", 1);		// Januar
 
 
-		// Beispielkategorien für neue Benutzer
+		// Beispielkategorien fÃ¼r neue Benutzer
 		QStringList defaultCategories;
 		defaultCategories << "Lebensmittel" << "Wohnen" << "Transport"
 			<< "Unterhaltung" << "Gesundheit" << "Bildung" << "Sonstiges";
@@ -46,7 +46,7 @@ int main(int argc, char* argv[])
 	}
 
 
-	// Prüfen, ob das Datenverzeichnis existiert, andernfalls erstellen
+	// PrÃ¼fen, ob das Datenverzeichnis existiert, andernfalls erstellen
 	QDir dataDir(QDir::homePath() + "/.haushaltsbuch");
 	if (!dataDir.exists()) {
 		dataDir.mkpath(".");
@@ -56,7 +56,7 @@ int main(int argc, char* argv[])
 	MainWindow mainWindow;
 	mainWindow.show();
 
-	// Anwendung ausführen und Rückgabecode zurückgeben
+	// Anwendung ausfÃ¼hren und RÃ¼ckgabecode zurÃ¼ckgeben
 	return app.exec();
 
 
